@@ -51,7 +51,7 @@ $ cat commands.txt | ./hsh
 
 ## How we find commands
 
-If the received string contains a `/` (like `/bin/ls` or `./hsh`), the shell just tries to run it as-is. Otherwise it searches each directory listed in the `PATH` environment variable, tracking your command onto the end of each one, until it finds something executable. If nothing turns up, you get an error that mimics `sh`'s own format:
+If the received string contains a `/` (like `/bin/ls` or `./hsh`), the shell tries to run it as-is. Otherwise it searches each directory listed in the `PATH` environment variable, adding the command to each location, looking for a matching binary. If nothing is found, you get an error that mimics `sh`'s own format:
 
 ```
 $$$ egg_shell
